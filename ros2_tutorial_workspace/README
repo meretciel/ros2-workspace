@@ -1,0 +1,8 @@
+
+To launch differnet nodes:
+
+```
+ros2 run python_package_with_a_node print_forever_node
+ros2 run python_package_with_a_node sample_python_node
+ros2 run python_package_uses_the_library node_that_uses_the_library
+```
