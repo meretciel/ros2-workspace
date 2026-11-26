@@ -11,13 +11,17 @@ find_package(rclcpp REQUIRED)
 
 
 # <start>Shared Library</start>
+
+# Shared library is accessed via the package. Therefore the
+# target name is the project name
 add_library(${PROJECT_NAME} SHARED
-    src/sample_class_local_node.cpp
-    src/sample_class.cpp
+    "src/sample_class.cpp"
+    "src/sample_class_local_node.cpp"
 )
 
 ament_target_dependencies(${PROJECT_NAME}
     rclcpp
+
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
@@ -27,6 +31,8 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 
 ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
 ament_export_dependencies(rclcpp)
+
+
 target_link_libraries(${PROJECT_NAME})
 
 install(
